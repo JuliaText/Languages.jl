@@ -1,7 +1,9 @@
 Languages.jl
 ============
 
-A package for working with human languages.
+# Introduction
+
+Languages.jl is a Julia package for working with human languages. It provides:
 
 * Lists of words from each language for basic categories:
 	* Articles
@@ -10,3 +12,13 @@ A package for working with human languages.
 	* Prepositions
 	* Pronouns
 	* Stopwords
+
+# Usage
+
+	require("Languages")
+	using Languages
+
+	articles(EnglishLanguage)
+	stopwords(EnglishLanguage)
+
+All word lists are returned as vectors of UTF-8 strings.
