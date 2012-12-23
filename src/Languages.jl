@@ -1,6 +1,6 @@
-module Languages
-	require("pkg")
+require("pkg")
 
+module Languages
 	export Language, EnglishLanguage, SpanishLanguage, GermanLanguage
 	export articles, definite_articles, indefinite_articles
 	export prepositions
