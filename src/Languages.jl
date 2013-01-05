@@ -9,7 +9,7 @@ module Languages
 
 	cache = Dict()
 
-	require("Languages/src/types.jl")
-	require("Languages/src/utils.jl")
-	require("Languages/src/word_lists.jl")
+	include(joinpath("Languages", "src", "types.jl"))
+	include(joinpath("Languages", "src", "utils.jl"))
+	include(joinpath("Languages", "src", "word_lists.jl"))
 end
