@@ -15,7 +15,6 @@ Languages.jl is a Julia package for working with human languages. It provides:
 
 # Usage
 
-	require("Languages")
 	using Languages
 
 	articles(EnglishLanguage)

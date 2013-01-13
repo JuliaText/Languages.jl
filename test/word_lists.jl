@@ -1,4 +1,3 @@
-require("Languages")
 using Languages
 
 @assert all(articles(EnglishLanguage) .== ["a", "an", "the"])
