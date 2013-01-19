@@ -7,7 +7,7 @@ module Languages
 
 	cache = Dict()
 
-	include(joinpath(julia_pkgdir(), "Languages", "src", "types.jl"))
-	include(joinpath(julia_pkgdir(), "Languages", "src", "utils.jl"))
-	include(joinpath(julia_pkgdir(), "Languages", "src", "word_lists.jl"))
+	include("types.jl")
+	include("utils.jl")
+	include("word_lists.jl")
 end
