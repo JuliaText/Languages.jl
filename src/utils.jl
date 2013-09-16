@@ -1,9 +1,14 @@
+const _cache = Dict{String,Array}()
+
 function fetch_word_list(filename::String)
+  haskey(_cache, filename) && return _cache[filename] 
   try
     io = open(filename, "r")
     words = map(x -> chomp(x), readlines(io))
     close(io)
-    return convert(Array{UTF8String,1}, words)
+    ret = convert(Array{UTF8String,1}, words)
+    _cache[filename] = ret
+    return ret
   catch
     error("Failed to fetch word list from $(filename)")
   end
