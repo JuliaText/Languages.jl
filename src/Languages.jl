@@ -1,5 +1,6 @@
 module Languages
 	export Language, EnglishLanguage, SpanishLanguage, GermanLanguage
+	export isocode, name
 	export articles, definite_articles, indefinite_articles
 	export prepositions
 	export pronouns
