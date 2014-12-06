@@ -1,6 +1,10 @@
 Languages.jl
 ============
 
+# NOTICE
+
+**This package is unmaintained. Its reliability is not guaranteed.**
+
 # Introduction
 
 Languages.jl is a Julia package for working with human languages. It provides:
