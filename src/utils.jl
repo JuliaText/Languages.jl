@@ -1,6 +1,6 @@
-const _cache = Dict{String,Array}()
+const _cache = Dict{AbstractString,Array}()
 
-function fetch_word_list(filename::String)
+function fetch_word_list(filename::AbstractString)
   haskey(_cache, filename) && return _cache[filename] 
   try
     io = open(filename, "r")
