@@ -1,4 +1,5 @@
 module Languages
+using Compat
 	export Language, EnglishLanguage, SpanishLanguage, GermanLanguage
 	export isocode, name
 	export articles, definite_articles, indefinite_articles
