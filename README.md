@@ -1,5 +1,7 @@
 Languages.jl
 ============
+[![Build Status](https://travis-ci.org/johnmyleswhite/Languages.jl.svg)](https://travis-ci.org/johnmyleswhite/Languages.jl)
+
 
 # NOTICE
 
