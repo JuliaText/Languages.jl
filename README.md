@@ -1,6 +1,10 @@
 Languages.jl
 ============
 [![Build Status](https://travis-ci.org/johnmyleswhite/Languages.jl.svg)](https://travis-ci.org/johnmyleswhite/Languages.jl)
+[![Languages](http://pkg.julialang.org/badges/Languages_0.3.svg)](http://pkg.julialang.org/?pkg=Languages)
+[![Languages](http://pkg.julialang.org/badges/Languages_0.4.svg)](http://pkg.julialang.org/?pkg=Languages)
+[![Languages](http://pkg.julialang.org/badges/Languages_0.5.svg)](http://pkg.julialang.org/?pkg=Languages)
+
 
 
 # NOTICE
