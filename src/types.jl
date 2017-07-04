@@ -1,21 +1,21 @@
-abstract Language
+@compat abstract type Language; end
 
 # Languages currently supported by Snowball
-abstract DanishLanguage     <: Language
-abstract DutchLanguage      <: Language
-abstract EnglishLanguage    <: Language
-abstract FinnishLanguage    <: Language
-abstract FrenchLanguage     <: Language
-abstract GermanLanguage     <: Language
-abstract HungarianLanguage  <: Language
-abstract ItalianLanguage    <: Language
-abstract NorwegianLanguage  <: Language
-abstract PortugueseLanguage <: Language
-abstract RomanianLanguage   <: Language
-abstract RussianLanguage    <: Language
-abstract SpanishLanguage    <: Language
-abstract SwedishLanguage    <: Language
-abstract TurkishLanguage    <: Language
+@compat abstract type DanishLanguage     <: Language; end
+@compat abstract type DutchLanguage      <: Language; end
+@compat abstract type EnglishLanguage    <: Language; end
+@compat abstract type FinnishLanguage    <: Language; end
+@compat abstract type FrenchLanguage     <: Language; end
+@compat abstract type GermanLanguage     <: Language; end
+@compat abstract type HungarianLanguage  <: Language; end
+@compat abstract type ItalianLanguage    <: Language; end
+@compat abstract type NorwegianLanguage  <: Language; end
+@compat abstract type PortugueseLanguage <: Language; end
+@compat abstract type RomanianLanguage   <: Language; end
+@compat abstract type RussianLanguage    <: Language; end
+@compat abstract type SpanishLanguage    <: Language; end
+@compat abstract type SwedishLanguage    <: Language; end
+@compat abstract type TurkishLanguage    <: Language; end
 
 # These are ISO 639-2T alpha-3 and ISO 639-3 codes
 isocode(lang::Type{DanishLanguage})     = "dan"
