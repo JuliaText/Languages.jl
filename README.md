@@ -1,14 +1,9 @@
 Languages.jl
 ============
-[![Build Status](https://travis-ci.org/johnmyleswhite/Languages.jl.svg)](https://travis-ci.org/johnmyleswhite/Languages.jl)
+[![Build Status](https://travis-ci.org/JuliaText/Languages.jl.svg)](https://travis-ci.org/JuliaText/Languages.jl)
 [![Languages](http://pkg.julialang.org/badges/Languages_0.5.svg)](http://pkg.julialang.org/?pkg=Languages)
 [![Languages](http://pkg.julialang.org/badges/Languages_0.6.svg)](http://pkg.julialang.org/?pkg=Languages)
 
-
-
-# NOTICE
-
-**This package is unmaintained. Its reliability is not guaranteed.**
 
 # Introduction
 
