@@ -1,13 +1,13 @@
-@compat abstract type Language; end
+abstract type Language; end
 
 # Languages currently supported by Snowball
 #Danish, Dutch, English, Finnish, French, German, Hungarian, Italian, Norwegian,
 # Portuguese, Romanian, Russian, Spanish, Swedish, Turkish
 
 # These are ISO 639-2T alpha-3 and ISO 639-3 codes
-isocode{T<:Language}(lang::T) = isocode(T)
-name{T<:Language}(lang::T) = name(T)
-eng_name{T<:Language}(lang::T) = eng_name(T)
+isocode(lang::T) where {T<:Language} = isocode(T)
+name(lang::T) where {T<:Language} = name(T)
+eng_name(lang::T) where {T<:Language} = eng_name(T)
 
 struct Esperanto <: Language; end;	eng_name(::Type{Esperanto}) = "Esperanto";	name(::Type{Esperanto}) = "Esperanto";	isocode(::Type{Esperanto}) = "epo";
 struct English <: Language; end;	eng_name(::Type{English}) = "English";	name(::Type{English}) = "English";	isocode(::Type{English}) = "eng"

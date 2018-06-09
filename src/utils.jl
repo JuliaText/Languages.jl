@@ -6,7 +6,7 @@ function fetch_word_list(filename::AbstractString)
     io = open(filename, "r")
     words = map(x -> chomp(x), readlines(io))
     close(io)
-    ret = convert(Array{Compat.UTF8String,1}, words)
+    ret = convert(Array{String,1}, words)
     _cache[filename] = ret
     return ret
   catch
