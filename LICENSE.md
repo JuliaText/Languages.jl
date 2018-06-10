@@ -1,6 +1,6 @@
 Languages.jl is licensed under the MIT License:
 
-> Copyright (c) 2012-2015: John Myles White and other contributors.
+> Copyright (c) 2012-2018: John Myles White, Avik Sengupta and other contributors.
 >
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the
