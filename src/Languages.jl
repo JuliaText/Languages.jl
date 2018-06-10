@@ -1,5 +1,4 @@
 module Languages
-using Compat
 using JSON
 using Match
 
@@ -28,5 +27,9 @@ using Match
 	    	end
 		end
 	end
+
+	## Deprecations
+	@Base.deprecate_binding EnglishLanguage English
+	@Base.deprecate_binding GermanLanguage German
 
 end
