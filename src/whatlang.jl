@@ -409,7 +409,12 @@ function calculate_distance(lang_trigrams,  text_trigrams)
     total_dist
 end
 
-function detect(text::AbstractString, options=default_options())
+Base.@deprecate detect(text::AbstractString, options=default_options()) LanguageDetector()(text, options)
+
+type LanguageDetector
+end
+
+function(m::LanguageDetector)(text::AbstractString, options=default_options())
     if text==""; throw(ArgumentError("Cannot detect language for empty text")); end
     script = detect_script(text)
     if script == nothing; return (nothing, nothing, 0); end

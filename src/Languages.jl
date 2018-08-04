@@ -8,6 +8,7 @@ using Match
 	export prepositions
 	export pronouns
 	export stopwords
+	export LanguageDetector
 
 	cache = Dict()
 

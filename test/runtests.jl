@@ -10,10 +10,14 @@ using Base.Test
   @test length(stopwords(lang)) == 488
 end
 
-@test Languages.from_code("ben") == Languages.Bengali()
-@test Languages.from_code("Ben") == Languages.Bengali()
-@test Languages.from_code("BEn") == Languages.Bengali()
+@testset "lang code" begin
+    @test Languages.from_code("ben") == Languages.Bengali()
+    @test Languages.from_code("Ben") == Languages.Bengali()
+    @test Languages.from_code("BEn") == Languages.Bengali()
 
-@test Languages.from_code("abc") == nothing
+    @test Languages.from_code("abc") == nothing
+end
 
-include("whatlang.jl")
+@testset "lang detect" begin
+    include("whatlang.jl")
+end

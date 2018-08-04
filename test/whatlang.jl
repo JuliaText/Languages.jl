@@ -115,18 +115,19 @@ res = Languages.get_trigrams_with_positions("xaaaaabbbbd")
 @test res["bbb"] == 2
 
 #Detection
+d = LanguageDetector()
 text = "Además de todo lo anteriormente dicho, también encontramos..."
-output = Languages.detect(text)
+output = d(text)
 @test output[1] == Languages.Spanish()
 @test output[2] == Languages.LatinScript()
 
 text = "Та нічого, все нормально. А в тебе як?"
-output = Languages.detect(text)
+output = d(text)
 @test output[1] == Languages.Ukrainian()
 @test output[2] == Languages.CyrillicScript()
 
 text = "I am begging pardon";
-output = Languages.detect(text)
+output = d(text)
 @test output[1] == Languages.Tagalog()
 
 text = """
@@ -136,14 +137,14 @@ text = """
         И лучше выдумать не мог.
     """
 
-output = Languages.detect(text)
+output = d(text)
 @test output[1] == Languages.Russian()
 
 #Test all languages!
 examples = JSON.parse(readstring(joinpath(dirname(@__FILE__), "examples.json")))
-Languages.detect(examples["deu"])
+d(examples["deu"])
 
 for (key, val) in examples
-    output = Languages.detect(val)
+    output = d(val)
     @test output[1] == Languages.from_code(key)
 end
