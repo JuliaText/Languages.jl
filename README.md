@@ -45,12 +45,13 @@ filtered based on the detected script.
 We detect 84 of the most common languages spoken around the world. This usually
 covers most languages with more than 10 million native speakers.
 
-  Languages.detect("To be or not to be")
+  detector = LanguageDetector()
+	detector("To be or not to be")
   # (Languages.English(), Languages.LatinScript(), 1.0)
 
-The `detect` function returns the language, the script, and the confidence.
+The `LanguageDetector` model returns the language, the script, and the confidence when applied to a string.
 
-The language and script detection code in this package is ported from  the rust package [whatlang-rs](https://github.com/greyblake/whatlang-rs). That package is in turn derived from [franc](https://github.com/wooorm/franc). See `LICENSE.whatlang-rs` for details. 
+The language and script detection code in this package is heavily inspired from  the rust package [whatlang-rs](https://github.com/greyblake/whatlang-rs). That package is in turn derived from [franc](https://github.com/wooorm/franc). See `LICENSE.whatlang-rs` for details.
 
 ## Deprecations
 
