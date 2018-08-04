@@ -62,9 +62,9 @@ function detect_script(text::AbstractString)
         end
     end
 
-    sort(script_counters, lt=(x,y)->x[2]<y[2])
-    if script_counters[2] > 0
-        return script_counters[1]
+    sort!(script_counters, lt=(x,y)->x[2]<y[2])
+    if script_counters[1][2] > 0
+        return script_counters[1][2]
     else
         return nothing
     end
@@ -410,7 +410,9 @@ function calculate_distance(lang_trigrams,  text_trigrams)
 end
 
 function detect(text::AbstractString, options=default_options())
+    if text==""; throw(ArgumentError("Cannot detect language for empty text")); end
     script = detect_script(text)
+    if script == nothing; return (nothing, nothing, 0); end
     lang, conf = detect_lang_based_on_script(text, script, options)
     return (from_code(lang), script, conf)
 end
