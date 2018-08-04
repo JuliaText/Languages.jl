@@ -1,12 +1,14 @@
 using Languages
 using Base.Test
 
-@assert all(articles(Languages.English()) .== ["a", "an", "the"])
-@assert all(indefinite_articles(Languages.English()) .== ["a", "an"])
-@assert all(definite_articles(Languages.English()) .== ["the"])
-@assert length(prepositions(Languages.English())) == 33
-@assert length(pronouns(Languages.English())) == 36
-@assert length(stopwords(Languages.English())) == 488
+@testset "wordlists $lang" for lang = [Languages.English, Languages.English()]
+  @test all(articles(lang) .== ["a", "an", "the"])
+  @test all(indefinite_articles(lang) .== ["a", "an"])
+  @test all(definite_articles(lang) .== ["the"])
+  @test length(prepositions(lang)) == 33
+  @test length(pronouns(lang)) == 36
+  @test length(stopwords(lang)) == 488
+end
 
 @test Languages.from_code("ben") == Languages.Bengali()
 @test Languages.from_code("Ben") == Languages.Bengali()

@@ -15,5 +15,7 @@ for f in ("articles", "indefinite_articles", "definite_articles", "prepositions"
       Base.depwarn("Use of Languages as types is deprecated. Use instances.", Symbol(T))
       return fetch_word_list(filename)
     end
+
+    $(Symbol(f))(l::T) where T <: Language = $(Symbol(f))(T)
   end
 end
