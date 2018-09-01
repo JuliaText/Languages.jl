@@ -141,7 +141,7 @@ output = d(text)
 @test output[1] == Languages.Russian()
 
 #Test all languages!
-examples = JSON.parse(readstring(joinpath(dirname(@__FILE__), "examples.json")))
+examples = JSON.parse(read(joinpath(dirname(@__FILE__), "examples.json"), String))
 d(examples["deu"])
 
 for (key, val) in examples
