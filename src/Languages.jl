@@ -18,7 +18,7 @@ using Match
 	include("whatlang.jl")
 
 	function __init__()
-	    trigram_models_json = JSON.parse(readstring(joinpath(dirname(@__FILE__), "..", "data", "data.json")))
+	    trigram_models_json = JSON.parse(read(joinpath(dirname(@__FILE__), "..", "data", "data.json"), String))
 	    global trigram_models = Dict{String, Dict}()
 	    for (script, langs) in trigram_models_json
 	        for (lang, trigrams) in langs #store only supported langs

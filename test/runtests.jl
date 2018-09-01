@@ -1,5 +1,5 @@
 using Languages
-using Base.Test
+using Test
 
 @testset "wordlists $lang" for lang = [Languages.English, Languages.English()]
   @test all(articles(lang) .== ["a", "an", "the"])

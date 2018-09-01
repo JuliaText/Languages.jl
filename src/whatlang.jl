@@ -328,8 +328,8 @@ detect_lang_based_on_script(text::AbstractString, script::Union{HiraganaScript, 
 
 struct LangDetectOptions
     model::DetectType
-    whitelist::Union{Void, Vector{Language}}
-    blacklist::Union{Void, Vector{Language}}
+    whitelist::Union{Nothing, Vector{Language}}
+    blacklist::Union{Nothing, Vector{Language}}
 end
 
 default_options() = LangDetectOptions(Trigram, Vector{Language}(), Vector{Language}())
@@ -411,7 +411,7 @@ end
 
 Base.@deprecate detect(text::AbstractString, options=default_options()) LanguageDetector()(text, options)
 
-type LanguageDetector
+mutable struct LanguageDetector
 end
 
 function(m::LanguageDetector)(text::AbstractString, options=default_options())
