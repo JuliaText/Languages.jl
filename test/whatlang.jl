@@ -122,12 +122,12 @@ output = d(text)
 @test output[2] == Languages.LatinScript()
 
 text = "Та нічого, все нормально. А в тебе як?"
-output = d(text)
+global output = d(text)
 @test output[1] == Languages.Ukrainian()
 @test output[2] == Languages.CyrillicScript()
 
 text = "I am begging pardon";
-output = d(text)
+global output = d(text)
 @test output[1] == Languages.Tagalog()
 
 text = """
@@ -137,7 +137,7 @@ text = """
         И лучше выдумать не мог.
     """
 
-output = d(text)
+global output = d(text)
 @test output[1] == Languages.Russian()
 
 #Test all languages!
@@ -145,6 +145,6 @@ examples = JSON.parse(read(joinpath(dirname(@__FILE__), "examples.json"), String
 d(examples["deu"])
 
 for (key, val) in examples
-    output = d(val)
+    global output = d(val)
     @test output[1] == Languages.from_code(key)
 end

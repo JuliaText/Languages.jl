@@ -1,7 +1,12 @@
 using Languages
 using Test
+using JSON
 
-@testset "wordlists $lang" for lang = [Languages.English, Languages.English()]
+@testset "Languages Tests" begin
+
+lang = Languages.English()
+
+@testset "wordlists $lang" begin
   @test all(articles(lang) .== ["a", "an", "the"])
   @test all(indefinite_articles(lang) .== ["a", "an"])
   @test all(definite_articles(lang) .== ["the"])
@@ -20,4 +25,6 @@ end
 
 @testset "lang detect" begin
     include("whatlang.jl")
+end
+
 end

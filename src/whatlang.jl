@@ -1,5 +1,3 @@
-using Match
-using JSON
 # Maximum distance(difference) for a trigram in a language profile and text profile.
  const MAX_TRIGRAM_DISTANCE = 300;
 
@@ -279,16 +277,21 @@ function count_trigrams(text::AbstractString)
     #iterate through the string and count trigram
     chars_iter = (lowercase(to_trigram_char(x)) for x in text)
     c1 = ' ';
-    state = start(chars_iter)
-    c2, state = next(chars_iter, state)
-    while !done(chars_iter, state)
-        c3, state  = next(chars_iter, state)
+    #state = start(chars_iter)
+    next = iterate(chars_iter)
+    (c2, state) = next
+    #c2, state = next(chars_iter, state)
+    next = iterate(chars_iter, state)
+    while next != nothing #!done(chars_iter, state)
+        #c3, state  = next(chars_iter, state)
+        (c3, state) = next
         if !(c2 == ' ' && (c1 == ' ' || c3 == ' '))
             trigram = string(c1, c2, c3)
             counter_hash[trigram] = get(counter_hash, trigram, 0) + 1
         end
         c1 = c2;
         c2 = c3;
+        next = iterate(chars_iter, state)
     end
     return counter_hash
 end
