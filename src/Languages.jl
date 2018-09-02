@@ -1,6 +1,5 @@
 module Languages
 using JSON
-using Match
 
 	export Language
 	export isocode, name, detect
