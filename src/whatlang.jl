@@ -71,121 +71,121 @@ function detect_script(text::AbstractString)
 end
 
 function is_script(::CyrillicScript, ch::Char)
-   if ch in '\u0400':'\u0484' || ch in '\u0487':'\u052F' || ch in '\u2DE0':'\u2DFF' || ch in '\uA640':'\uA69D' || ch == '\u1D2B' || ch == '\u1D78' || ch == '\uA69F' return true; else; return false; end
+   return ch in '\u0400':'\u0484' || ch in '\u0487':'\u052F' || ch in '\u2DE0':'\u2DFF' || ch in '\uA640':'\uA69D' || ch == '\u1D2B' || ch == '\u1D78' || ch == '\uA69F'
 end
 
 # https:#en.wikipedia.org/wiki/Latin_script_in_Unicode
 function is_script(::LatinScript, ch::Char)
-    if ch in 'a':'z' || ch in 'A':'Z' || ch in '\u0080':'\u00FF' || ch in '\u0100':'\u017F' || ch in '\u0180':'\u024F' || ch in '\u0250':'\u02AF' || ch in '\u1D00':'\u1D7F' || ch in '\u1D80':'\u1DBF' || ch in '\u1E00':'\u1EFF' || ch in '\u2100':'\u214F' || ch in '\u2C60':'\u2C7F' || ch in '\uA720':'\uA7FF' || ch in '\uAB30':'\uAB6F' ; return true; else; return false; end
+    return ch in 'a':'z' || ch in 'A':'Z' || ch in '\u0080':'\u00FF' || ch in '\u0100':'\u017F' || ch in '\u0180':'\u024F' || ch in '\u0250':'\u02AF' || ch in '\u1D00':'\u1D7F' || ch in '\u1D80':'\u1DBF' || ch in '\u1E00':'\u1EFF' || ch in '\u2100':'\u214F' || ch in '\u2C60':'\u2C7F' || ch in '\uA720':'\uA7FF' || ch in '\uAB30':'\uAB6F'
 end
 
 # Based on https:#en.wikipedia.org/wiki/Arabic_script_in_Unicode
 function is_script(::ArabicScript, ch::Char)
-    if ch in  '\u0600':'\u06FF' || ch in '\u0750':'\u07FF' || ch in '\u08A0':'\u08FF' || ch in '\uFB50':'\uFDFF' || ch in '\uFE70':'\uFEFF'  return true; else; return false; end  #|| '\u10E60':'\u10E7F' || '\u1EE00':'\u1EEFF'
+    return ch in  '\u0600':'\u06FF' || ch in '\u0750':'\u07FF' || ch in '\u08A0':'\u08FF' || ch in '\uFB50':'\uFDFF' || ch in '\uFE70':'\uFEFF' #|| '\u10E60':'\u10E7F' || '\u1EE00':'\u1EEFF'
 end
 
 # Based on https:#en.wikipedia.org/wiki/Devanagari#Unicode
 function is_script(::DevanagariScript, ch::Char)
-    if ch in '\u0900':'\u097F' || ch in '\uA8E0':'\uA8FF' || ch in '\u1CD0':'\u1CFF' ; return true; else; return false; end
+    return ch in '\u0900':'\u097F' || ch in '\uA8E0':'\uA8FF' || ch in '\u1CD0':'\u1CFF'
 end
 
 # Based on https:#www.key-shortcut.com/en/writing-systems/ethiopian-script/
 function is_script(::EthiopicScript, ch::Char)
-    if ch in '\u1200':'\u139F' || ch in '\u2D80':'\u2DDF' || ch in '\uAB00':'\uAB2F' ; return true; else; return false; end
+    return ch in '\u1200':'\u139F' || ch in '\u2D80':'\u2DDF' || ch in '\uAB00':'\uAB2F'
 end
 
 # Based on https:#en.wikipedia.org/wiki/Hebrew_(Unicode_block)
 function is_script(::HebrewScript, ch::Char)
-    if ch in '\u0590':'\u05FF' ; return true; else; return false; end
+    return ch in '\u0590':'\u05FF'
 end
 
 function is_script(::GeorgianScript, ch::Char)
-   if ch in '\u10A0':'\u10FF' ; return true; else; return false; end
+   return ch in '\u10A0':'\u10FF'
 end
 
 function is_script(::MandarinScript, ch::Char)
-    if ch in '\u2E80':'\u2E99' || ch in '\u2E9B':'\u2EF3' || ch in '\u2F00':'\u2FD5' || ch == '\u3005' || ch == '\u3007' || ch in '\u3021':'\u3029' || ch in '\u3038':'\u303B' || ch in '\u3400':'\u4DB5' || ch in '\u4E00':'\u9FCC' || ch in '\uF900':'\uFA6D' || ch in '\uFA70':'\uFAD9' ; return true; else; return false; end
+    return ch in '\u2E80':'\u2E99' || ch in '\u2E9B':'\u2EF3' || ch in '\u2F00':'\u2FD5' || ch == '\u3005' || ch == '\u3007' || ch in '\u3021':'\u3029' || ch in '\u3038':'\u303B' || ch in '\u3400':'\u4DB5' || ch in '\u4E00':'\u9FCC' || ch in '\uF900':'\uFA6D' || ch in '\uFA70':'\uFAD9'
 end
 
 function is_script(::BengaliScript, ch::Char)
-   if ch in '\u0980':'\u09FF' ; return true; else; return false; end
+   return ch in '\u0980':'\u09FF'
 end
 
 function is_script(::HiraganaScript, ch::Char)
-   if ch in '\u3040':'\u309F' ; return true; else; return false; end
+   return ch in '\u3040':'\u309F'
 end
 
 function is_script(::KatakanaScript, ch::Char)
-   if ch in '\u30A0':'\u30FF' ; return true; else; return false; end
+   return ch in '\u30A0':'\u30FF'
 end
 
 # Hangul is Korean Alphabet. Unicode ranges are taken from: https:#en.wikipedia.org/wiki/Hangul
 function is_script(::HangulScript, ch::Char)
-    if ch in '\uAC00':'\uD7AF' || ch in '\u1100':'\u11FF' || ch in '\u3130':'\u318F' || ch in '\u3200':'\u32FF' || ch in '\uA960':'\uA97F' || ch in '\uD7B0':'\uD7FF' || ch in '\uFF00':'\uFFEF' ; return true; else; return false; end
+    return ch in '\uAC00':'\uD7AF' || ch in '\u1100':'\u11FF' || ch in '\u3130':'\u318F' || ch in '\u3200':'\u32FF' || ch in '\uA960':'\uA97F' || ch in '\uD7B0':'\uD7FF' || ch in '\uFF00':'\uFFEF'
 end
 
 # Taken from: https:#en.wikipedia.org/wiki/Greek_and_Coptic
 function is_script(::GreekScript, ch::Char)
-    if ch in '\u0370':'\u03FF' ; return true; else; return false; end
+    return ch in '\u0370':'\u03FF'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Kannada_(Unicode_block)
 function is_script(::KannadaScript, ch::Char)
-    if ch in '\u0C80':'\u0CFF' ; return true; else; return false; end
+    return ch in '\u0C80':'\u0CFF'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Tamil_(Unicode_block)
 function is_script(::TamilScript, ch::Char)
-    if ch in '\u0B80':'\u0BFF' ; return true; else; return false; end
+    return ch in '\u0B80':'\u0BFF'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Thai_(Unicode_block)
 function is_script(::ThaiScript, ch::Char)
-    if ch in '\u0E00':'\u0E7F' ; return true; else; return false; end
+    return ch in '\u0E00':'\u0E7F'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Gujarati_(Unicode_block)
 function is_script(::GujaratiScript, ch::Char)
-    if ch in '\u0A80':'\u0AFF' ; return true; else; return false; end
+    return ch in '\u0A80':'\u0AFF'
 end
 
 # Gurmukhi is the script for Punjabi language.
 # Based on: https:#en.wikipedia.org/wiki/Gurmukhi_(Unicode_block)
 function is_script(::GurmukhiScript, ch::Char)
-    if ch in '\u0A00':'\u0A7F' ; return true; else; return false; end
+    return ch in '\u0A00':'\u0A7F'
 end
 
 function is_script(::TeluguScript, ch::Char)
-    if ch in '\u0C00':'\u0C7F' ; return true; else; return false; end
+    return ch in '\u0C00':'\u0C7F'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Malayalam_(Unicode_block)
 function is_script(::MalayalamScript, ch::Char)
-    if ch in '\u0D00':'\u0D7F' ; return true; else; return false; end
+    return ch in '\u0D00':'\u0D7F'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Malayalam_(Unicode_block)
 function is_script(::OriyaScript, ch::Char)
-    if ch in '\u0B00':'\u0B7F' ; return true; else; return false; end
+    return ch in '\u0B00':'\u0B7F'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Myanmar_(Unicode_block)
 function is_script(::MyanmarScript, ch::Char)
-    if ch in '\u1000':'\u109F' ; return true; else; return false; end
+    return ch in '\u1000':'\u109F'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Sinhala_(Unicode_block)
 function is_script(::SinhalaScript, ch::Char)
-    if ch in '\u0D80':'\u0DFF' ; return true; else; return false; end
+    return ch in '\u0D80':'\u0DFF'
 end
 
 # Based on: https:#en.wikipedia.org/wiki/Khmer_alphabet
 function is_script(::KhmerScript, ch::Char)
-    if ch in '\u1780':'\u17FF' || ch in '\u19E0':'\u19FF' ; return true; else; return false; end
+    return ch in '\u1780':'\u17FF' || ch in '\u19E0':'\u19FF'
 end
 
 function is_stop_char(ch::Char)
-    if ch in '\u0000':'\u0040' || ch in '\u005B':'\u0060' || ch in '\u007B':'\u007E' ; return true; else; return false; end
+    return ch in '\u0000':'\u0040' || ch in '\u005B':'\u0060' || ch in '\u007B':'\u007E'
 end
 
 
