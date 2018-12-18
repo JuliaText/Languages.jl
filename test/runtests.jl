@@ -33,6 +33,27 @@ lang = Languages.Romanian()
   @test length(stopwords(lang)) == 101
 end
 
+lang = Languages.French()
+
+@testset "wordlists $lang" begin
+  @test all(articles(lang) .== ["au", "aux", "de l'", "de la", "des",
+                                "du", "la", "le", "les", "un", "une",
+                                "à la"])
+  @test all(indefinite_articles(lang) .== ["des", "un", "une"])
+  # Test that all definite, indefinite articles are present in the articles
+  @test all(definite_articles(lang) .== ["la", "le", "les"])
+  @test all(map(article->in(article, articles(lang)),
+                definite_articles(lang)))
+  @test all(map(article->in(article, articles(lang)),
+                indefinite_articles(lang)))
+  @test length(prepositions(lang)) == 259
+  @test length(pronouns(lang)) == 122
+  @test length(stopwords(lang)) == 689
+end
+
+
+
+
 @testset "lang code" begin
     @test Languages.from_code("ben") == Languages.Bengali()
     @test Languages.from_code("Ben") == Languages.Bengali()
