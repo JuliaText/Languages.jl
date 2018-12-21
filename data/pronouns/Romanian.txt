@@ -1,6 +1,5 @@
 a cui
 a câta
-acasta
 acea
 aceasta
 această
@@ -25,6 +24,7 @@ acelui
 aceluia
 aceluiaşi
 acest
+acesta
 aceste
 acestea
 acestei
