@@ -81,7 +81,6 @@ berlusconi
 brava
 bravo
 buono
-c
 casa
 caso
 cento
@@ -134,7 +133,6 @@ cosa
 cosi
 così
 cui
-d
 da
 dagl
 dagli
@@ -176,7 +174,6 @@ dovunque
 due
 dunque
 durante
-e
 ebbe
 ebbero
 ebbi
@@ -301,7 +298,6 @@ intanto
 intorno
 invece
 io
-l
 la
 lasciato
 lato
