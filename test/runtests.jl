@@ -49,9 +49,9 @@ lang = Languages.French()
                 definite_articles(lang)))
   @test all(map(article->in(article, articles(lang)),
                 indefinite_articles(lang)))
-  @test length(prepositions(lang)) == 259
+  @test length(prepositions(lang)) == 258
   @test length(pronouns(lang)) == 122
-  @test length(stopwords(lang)) == 689
+  @test length(stopwords(lang)) == 665
 end
 
 
@@ -70,7 +70,7 @@ lang = Languages.Italian()
                 indefinite_articles(lang)))
   @test length(prepositions(lang)) == 45
   @test length(pronouns(lang)) == 27
-  @test length(stopwords(lang)) == 646
+  @test length(stopwords(lang)) == 642
 end
 
 
