@@ -13,3 +13,13 @@ function fetch_word_list(filename::AbstractString)
     error("Failed to fetch word list from $(filename)")
   end
 end
+
+"""
+    list_languages()
+This returnes a DataFrame with information about all the supported languages.
+"""
+function list_languages()
+    return DataFrame(English_name = english_name.(subtypes(Language)),
+        Name = name.(subtypes(Language)),
+        ISO_code = isocode.(subtypes(Language)))
+end

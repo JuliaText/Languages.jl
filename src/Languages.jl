@@ -1,5 +1,7 @@
 module Languages
 using JSON
+using DataFrames
+using InteractiveUtils
 
 	export Language
 	export isocode, name, detect
@@ -8,6 +10,7 @@ using JSON
 	export pronouns
 	export stopwords
 	export LanguageDetector
+	export list_languages
 
 	cache = Dict()
 
