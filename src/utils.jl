@@ -19,7 +19,5 @@ end
 This returns information about all the supported languages.
 """
 function list_languages()
-    for i in subtypes(Language)
-        println(english_name(i), "\t\t", name(i), "\t\t", isocode(i))
-    end 
+   [isocode(i) for i in subtypes(Language)]
 end
