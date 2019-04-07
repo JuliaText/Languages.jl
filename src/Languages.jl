@@ -1,6 +1,5 @@
 module Languages
 using JSON
-using DataFrames
 using InteractiveUtils
 
 	export Language

@@ -1,7 +1,6 @@
 using Languages
 using Test
 using JSON
-using DataFrames
 using InteractiveUtils
 
 @testset "Languages Tests" begin
@@ -87,11 +86,6 @@ end
 
 @testset "lang detect" begin
     include("whatlang.jl")
-end
-
-@testset "list languages" begin
-    @test list_languages() isa DataFrame
-    @test size(list_languages()) == (length(subtypes(Language)) ,3)
 end
 
 end

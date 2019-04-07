@@ -16,10 +16,10 @@ end
 
 """
     list_languages()
-This returnes a DataFrame with information about all the supported languages.
+This returns information about all the supported languages.
 """
 function list_languages()
-    return DataFrame(English_name = english_name.(subtypes(Language)),
-        Name = name.(subtypes(Language)),
-        ISO_code = isocode.(subtypes(Language)))
+    for i in subtypes(Language)
+        println(english_name(i), "\t\t", name(i), "\t\t", isocode(i))
+    end 
 end
