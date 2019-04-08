@@ -88,4 +88,9 @@ end
     include("whatlang.jl")
 end
 
+@testset "list languages" begin
+    @test list_languages() isa Array
+    @test length(list_languages()) == length(subtypes(Language))
+end
+
 end
