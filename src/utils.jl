@@ -13,3 +13,11 @@ function fetch_word_list(filename::AbstractString)
     error("Failed to fetch word list from $(filename)")
   end
 end
+
+"""
+    list_languages()
+This returns information about all the supported languages.
+"""
+function list_languages()
+   [isocode(i) for i in subtypes(Language)]
+end

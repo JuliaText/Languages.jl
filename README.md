@@ -47,6 +47,9 @@ covers most languages with more than 10 million native speakers.
 
   detector = LanguageDetector()
 	detector("To be or not to be")
+## List All Supported Languages
+You can use `list_languages()` to get all supported languages.
+
   # (Languages.English(), Languages.LatinScript(), 1.0)
 
 The `LanguageDetector` model returns the language, the script, and the confidence when applied to a string.

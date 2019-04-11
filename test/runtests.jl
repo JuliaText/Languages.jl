@@ -1,6 +1,7 @@
 using Languages
 using Test
 using JSON
+using InteractiveUtils
 
 @testset "Languages Tests" begin
 
@@ -85,6 +86,11 @@ end
 
 @testset "lang detect" begin
     include("whatlang.jl")
+end
+
+@testset "list languages" begin
+    @test list_languages() isa Array
+    @test length(list_languages()) == length(subtypes(Language))
 end
 
 end
