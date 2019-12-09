@@ -75,6 +75,18 @@ lang = Languages.Italian()
 end
 
 
+lang = Languages.Dutch()
+
+@testset "wordlists $lang" begin
+  @test all(articles(lang) .== ["de", "een", "het"])
+  @test all(indefinite_articles(lang) .== ["een"])
+  @test all(definite_articles(lang) .== ["de","het"])
+  @test length(prepositions(lang)) == 59
+  @test length(pronouns(lang)) == 29
+  @test length(stopwords(lang)) == 413
+end
+
+
 @testset "lang code" begin
     @test Languages.from_code("ben") == Languages.Bengali()
     @test Languages.from_code("Ben") == Languages.Bengali()
