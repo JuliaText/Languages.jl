@@ -1,5 +1,5 @@
 name = "Languages"
-uuid = "54686435-84b5-f32d-7e46-0ea67bb7e12b"
+uuid = "8ef0a80b-9436-5d2c-a485-80b904378c43"
 version = "0.4.3"
 
 [deps]
