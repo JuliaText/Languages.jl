@@ -1,13 +1,16 @@
 name = "Languages"
-uuid = "d30315cb-68a7-4c14-9e7e-43d1cd3d2c72"
-authors = ["John Myles White, Avik Sengupta and other contributors."]
-version = "0.1.0"
+uuid = "54686435-84b5-f32d-7e46-0ea67bb7e12b"
+version = "0.4.2"
 
 [deps]
 InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
-JSON = "0.19.0, 0.21.0"
-julia = "0.7, 1"
+julia = "1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
