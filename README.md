@@ -46,11 +46,10 @@ We detect 84 of the most common languages spoken around the world. This usually
 covers most languages with more than 10 million native speakers.
 
   detector = LanguageDetector()
-	detector("To be or not to be")
+  detector("To be or not to be") #=>  (Languages.English(), Languages.LatinScript(), 1.0)
+  
 ## List All Supported Languages
 You can use `list_languages()` to get all supported languages.
-
-  # (Languages.English(), Languages.LatinScript(), 1.0)
 
 The `LanguageDetector` model returns the language, the script, and the confidence when applied to a string.
 
@@ -62,4 +61,4 @@ The API of this package has been refurbished recently. If you have used this pac
 please be aware of these changes.
 
   * The language names have been shortened. So `English` instead of `EnglishLanguage`. However, the language names are no longer exported. So they should be referred to with the package name: `Languages.English`
-	* Every language is a type. However all functions now accept and return instances of these types, rather than the types themselves.
+  * Every language is a type. However all functions now accept and return instances of these types, rather than the types themselves.
