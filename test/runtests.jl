@@ -59,8 +59,7 @@ end
 lang = Languages.Italian()
 
 @testset "wordlists $lang" begin
-  @test all(articles(lang) .== ["gli", "i", "il", "l'", "la", "le",
-                                "lo", "un", "un'", "una", "uno"])
+  @test all(articles(lang) .== ["gli", "i", "il", "l'", "la", "le","lo", "un", "un'", "una", "uno"])
   @test all(indefinite_articles(lang) .== ["un", "un'", "una", "uno"])
   # Test that all definite, indefinite articles are present in the articles
   @test all(definite_articles(lang) .== ["gli", "i", "il", "l'", "la",
@@ -70,7 +69,7 @@ lang = Languages.Italian()
   @test all(map(article->in(article, articles(lang)),
                 indefinite_articles(lang)))
   @test length(prepositions(lang)) == 45
-  @test length(pronouns(lang)) == 27
+  @test length(pronouns(lang)) == 58
   @test length(stopwords(lang)) == 642
 end
 
