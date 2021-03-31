@@ -184,6 +184,18 @@ function from_code(code::String)
     return get(code_to_lang, lowercase(code), nothing)
 end
 
+# Dict of {'English name' => Language()}
+englishname_to_lang = Dict{String, Language}(lowercase(english_name(x)) => x() for x in subtypes(Language));
+
+# Dict of {'Isocode' => Language()} -> same as code_to_lang
+isocode_to_lang = Dict{String, Language}(lowercase(isocode(x)) => x() for x in subtypes(Language));
+
+# Merge above dicts for cover
+global const string_to_lang = merge(englishname_to_lang, isocode_to_lang);
+
+# Constructor for Language struct using string (isocode or english name)
+Language(lang::String) = get(string_to_lang, lowercase(lang), nothing)
+
 abstract type Script; end
 
 struct ArabicScript <: Script; end
