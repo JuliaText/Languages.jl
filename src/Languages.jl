@@ -3,7 +3,7 @@ using JSON
 using InteractiveUtils
 
 	export Language
-	export isocode, name, detect
+	export english_name, isocode, name, detect
 	export articles, definite_articles, indefinite_articles
 	export prepositions
 	export pronouns
