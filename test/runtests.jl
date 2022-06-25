@@ -104,4 +104,8 @@ end
     @test length(list_languages()) == length(subtypes(Language))
 end
 
+@testset "string to language constructors" begin
+  include("string_to_language.jl")
+end
+
 end
