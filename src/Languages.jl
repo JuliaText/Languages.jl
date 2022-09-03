@@ -1,6 +1,7 @@
 module Languages
 using JSON
 using InteractiveUtils
+using RelocatableFolders
 
 	export Language
 	export english_name, isocode, name, detect
@@ -18,8 +19,10 @@ using InteractiveUtils
 	include("word_lists.jl")
 	include("whatlang.jl")
 
+    const DATA_PATH = @path joinpath(@__DIR__, "..", "data", "data.json")
+
 	function __init__()
-	    trigram_models_json = JSON.parse(read(joinpath(dirname(@__FILE__), "..", "data", "data.json"), String))
+	    trigram_models_json = JSON.parse(read(DATA_PATH, String))
 	    global trigram_models = Dict{String, Dict}()
 	    for (script, langs) in trigram_models_json
 	        for (lang, trigrams) in langs #store only supported langs
