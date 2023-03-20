@@ -1,6 +1,7 @@
 Languages.jl
 ============
-[![Build Status](https://travis-ci.org/JuliaText/Languages.jl.svg)](https://travis-ci.org/JuliaText/Languages.jl)
+[![Build Status](https://github.com/juliatext/Languages.jl/workflows/CI/badge.svg?event=push&branch=master)](https://github.com/JuliaText/Languages.jl/actions?query=workflow%3ACI)
+
 [![version](https://juliahub.com/docs/Languages/version.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r)
 [![deps](https://juliahub.com/docs/Languages/deps.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r?t=2)
 [![pkgeval](https://juliahub.com/docs/Languages/pkgeval.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r)
