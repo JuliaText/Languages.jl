@@ -31,7 +31,6 @@ struct Amharic <: Language; end;	english_name(::Type{Amharic}) = "Amharic";	name
 struct Tigrinya <: Language; end;	english_name(::Type{Tigrinya}) = "Tigrinya";	name(::Type{Tigrinya}) = "ትግርኛ";	isocode(::Type{Tigrinya}) = "tir"
 struct Javanese <: Language; end;	english_name(::Type{Javanese}) = "Javanese";	name(::Type{Javanese}) = "Basa Jawa";	isocode(::Type{Javanese}) = "jav"
 struct Korean <: Language; end;	english_name(::Type{Korean}) = "Korean";	name(::Type{Korean}) = "한국어";	isocode(::Type{Korean}) = "kor"
-struct Kaqchikel <: Language; end; english_name(::Type{Kaqchikel}) = "Kaqchikel";    name(::Type{Kaqchikel}) = "Kaqchikel";  isocode(::Type{Kaqchikel}) = "cak"
 struct Bokmal <: Language; end;	english_name(::Type{Bokmal}) = "Bokmal";	name(::Type{Bokmal}) = "Bokmål";	isocode(::Type{Bokmal}) = "nob"
 struct Nynorsk <: Language; end;	english_name(::Type{Nynorsk}) = "Nynorsk";	name(::Type{Nynorsk}) = "Nynorsk";	isocode(::Type{Nynorsk}) = "nno"
 struct Danish <: Language; end;	english_name(::Type{Danish}) = "Danish";	name(::Type{Danish}) = "Dansk";	isocode(::Type{Danish}) = "dan"
@@ -117,7 +116,6 @@ global const code_to_lang = Dict{String, Language}(
     "amh"  => Amharic(),
     "tir"  => Tigrinya(),
     "jav"  => Javanese(),
-    "cak"  => Kaqchikel(),
     "kor"  => Korean(),
     "nob"  => Bokmal(),
     "nno"  => Nynorsk(),
