@@ -21,11 +21,11 @@ struct French <: Language; end;	english_name(::Type{French}) = "French";	name(::
 struct German <: Language; end;	english_name(::Type{German}) = "German";	name(::Type{German}) = "Deutsch";	isocode(::Type{German}) = "deu"
 struct Ukrainian <: Language; end;	english_name(::Type{Ukrainian}) = "Ukrainian";	name(::Type{Ukrainian}) = "Українська";	isocode(::Type{Ukrainian}) = "ukr"
 struct Georgian <: Language; end;	english_name(::Type{Georgian}) = "Georgian";	name(::Type{Georgian}) = "ქართული";	isocode(::Type{Georgian}) = "kat"
-struct Arabic <: Language; end;	english_name(::Type{Arabic}) = "Arabic";	name(::Type{Arabic}) = "العربية";	isocode(::Type{Arabic}) = "arb"
+struct Arabic <: Language; end;	english_name(::Type{Arabic}) = "Arabic";	name(::Type{Arabic}) = "العربية";	isocode(::Type{Arabic}) = "ara"
 struct Hindi <: Language; end;	english_name(::Type{Hindi}) = "Hindi";	name(::Type{Hindi}) = "हिन्दी";	isocode(::Type{Hindi}) = "hin"
 struct Japanese <: Language; end;	english_name(::Type{Japanese}) = "Japanese";	name(::Type{Japanese}) = "日本語";	isocode(::Type{Japanese}) = "jpn"
 struct Hebrew <: Language; end;	english_name(::Type{Hebrew}) = "Hebrew";	name(::Type{Hebrew}) = "עברית";	isocode(::Type{Hebrew}) = "heb"
-struct Yiddish <: Language; end;	english_name(::Type{Yiddish}) = "Yiddish";	name(::Type{Yiddish}) = "ייִדיש";	isocode(::Type{Yiddish}) = "ydd"
+struct Yiddish <: Language; end;	english_name(::Type{Yiddish}) = "Yiddish";	name(::Type{Yiddish}) = "ייִדיש";	isocode(::Type{Yiddish}) = "yid"
 struct Polish <: Language; end;	english_name(::Type{Polish}) = "Polish";	name(::Type{Polish}) = "Polski";	isocode(::Type{Polish}) = "pol"
 struct Amharic <: Language; end;	english_name(::Type{Amharic}) = "Amharic";	name(::Type{Amharic}) = "አማርኛ";	isocode(::Type{Amharic}) = "amh"
 struct Tigrinya <: Language; end;	english_name(::Type{Tigrinya}) = "Tigrinya";	name(::Type{Tigrinya}) = "ትግርኛ";	isocode(::Type{Tigrinya}) = "tir"
@@ -61,7 +61,7 @@ struct Thai <: Language; end;	english_name(::Type{Thai}) = "Thai";	name(::Type{T
 struct Gujarati <: Language; end;	english_name(::Type{Gujarati}) = "Gujarati";	name(::Type{Gujarati}) = "ગુજરાતી";	isocode(::Type{Gujarati}) = "guj"
 struct Uzbek <: Language; end;	english_name(::Type{Uzbek}) = "Uzbek";	name(::Type{Uzbek}) = "Oʻzbekcha";	isocode(::Type{Uzbek}) = "uzb"
 struct Punjabi <: Language; end;	english_name(::Type{Punjabi}) = "Punjabi";	name(::Type{Punjabi}) = "ਪੰਜਾਬੀ";	isocode(::Type{Punjabi}) = "pan"
-struct Azerbaijani <: Language; end;	english_name(::Type{Azerbaijani}) = "Azerbaijani";	name(::Type{Azerbaijani}) = "Azərbaycanca";	isocode(::Type{Azerbaijani}) = "azj"
+struct Azerbaijani <: Language; end;	english_name(::Type{Azerbaijani}) = "Azerbaijani";	name(::Type{Azerbaijani}) = "Azərbaycanca";	isocode(::Type{Azerbaijani}) = "aze"
 struct Indonesian <: Language; end;	english_name(::Type{Indonesian}) = "Indonesian";	name(::Type{Indonesian}) = "Bahasa Indonesia";	isocode(::Type{Indonesian}) = "ind"
 struct Telugu <: Language; end;	english_name(::Type{Telugu}) = "Telugu";	name(::Type{Telugu}) = "తెలుగు";	isocode(::Type{Telugu}) = "tel"
 struct Persian <: Language; end;	english_name(::Type{Persian}) = "Persian";	name(::Type{Persian}) = "فارسی";	isocode(::Type{Persian}) = "pes"
@@ -108,11 +108,11 @@ global const code_to_lang = Dict{String, Language}(
     "deu"  => German(),
     "ukr"  => Ukrainian(),
     "kat"  => Georgian(),
-    "arb"  => Arabic(),
+    "ara"  => Arabic(),
     "hin"  => Hindi(),
     "jpn"  => Japanese(),
     "heb"  => Hebrew(),
-    "ydd"  => Yiddish(),
+    "yid"  => Yiddish(),
     "pol"  => Polish(),
     "amh"  => Amharic(),
     "tir"  => Tigrinya(),
@@ -148,7 +148,7 @@ global const code_to_lang = Dict{String, Language}(
     "guj"  => Gujarati(),
     "uzb"  => Uzbek(),
     "pan"  => Punjabi(),
-    "azj"  => Azerbaijani(),
+    "aze"  => Azerbaijani(),
     "ind"  => Indonesian(),
     "tel"  => Telugu(),
     "pes"  => Persian(),
