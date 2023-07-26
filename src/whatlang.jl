@@ -36,38 +36,64 @@ function detect_script(text::AbstractString)
       [SinhalaScript()    , 0],
       [KhmerScript()      , 0]
     ]
+    mn_hi_ka_list = [MandarinScript(), HiraganaScript(), KatakanaScript()]
 
     half = length(text) / 2
     local found
     for ch in text
         if is_stop_char(ch); continue; end
         for i in 1:length(script_counters)
-            (script, count) = script_counters[i]
+            script, _ = script_counters[i]
             found = false
             if is_script(script, ch)
                 script_counters[i][2] += 1
                 found=true
-                if script_counters[i][2] > half; return script; end
+                # This check is true for all scripts except Mandarin, Hiragana and Katakana 
+                # that all can be Japanese language
+                if script_counters[i][2] > half && !(script in mn_hi_ka_list) ; return script; end
             end
             # If script was found, move it closer to the front.
             # If the text contains largely 1 or 2 scripts, this will
             # cause these scripts to be eventually checked first.
             if found && i>1
-                t=script_counters[i-1]
+                t = script_counters[i-1]
                 script_counters[i-1] = script_counters[i]
                 script_counters[i] = t
             end
         end
     end
 
-    sort!(script_counters, lt=(x,y)->x[2]<y[2])
-    if script_counters[1][2] > 0
-        return script_counters[1][2]
+    # Count the number of Mandarin, Hiragana and Katakana characters
+    mandarin_count, hiragana_count, katakana_count = 
+        map(mn_hi_ka_list) do scr
+            script_counters[indexin([scr], first.(script_counters))[1]][2]
+        end
+
+    # sort!(script_counters, lt=(x,y)->x[2]<y[2])
+    # if script_counters[1][2] > 0
+    #     return script_counters[1][2]
+
+    # Special check if Mandarin, Hiragana and Katakana script found
+    # detection script from
+    # https://github.com/greyblake/whatlang-rs/blob/0c03d281a8d327558ab89632d2d997e644a8c7dd/src/core/detect.rs#L70-L100
+    # See https://github.com/greyblake/whatlang-rs/issues/88
+    if !iszero(mandarin_count) || !iszero(hiragana_count) || !iszero(katakana_count)
+        japanese_count = katakana_count + hiragana_count
+        total = mandarin_count + japanese_count
+
+        jpn_pct = japanese_count / total
+        if jpn_pct > 0.2 
+            return katakana_count > hiragana_count ? KatakanaScript() : HiraganaScript()
+        elseif jpn_pct > 0.05 
+            return (katakana_count > hiragana_count ? KatakanaScript() : HiraganaScript(), 0.5)
+        elseif jpn_pct > 0.02 
+            return (MandarinScript(), 0.5)
+        else 
+            return MandarinScript()
+        end
     else
         return nothing
     end
-
-
 end
 
 function is_script(::CyrillicScript, ch::Char)
@@ -232,7 +258,13 @@ detect_lang_based_on_script(text::AbstractString, script::DevanagariScript, opti
 detect_lang_based_on_script(text::AbstractString, script::HebrewScript, options) = detect_lang_trigrams(text, script, options)
 detect_lang_based_on_script(text::AbstractString, script::EthiopicScript, options) = detect_lang_trigrams(text, script, options)
 detect_lang_based_on_script(text::AbstractString, script::ArabicScript, options) = detect_lang_trigrams(text, script, options)
-detect_lang_based_on_script(text::AbstractString, script::MandarinScript, options) = ("Cmn", 1.0)
+function detect_lang_based_on_script(text::AbstractString, script::Union{MandarinScript, Tuple{MandarinScript, Float64}}, options)
+    if isequal(typeof(script), MandarinScript) 
+        ("Cmn", 1.0)
+    else
+        ("Cmn", last(script))
+    end
+end
 detect_lang_based_on_script(text::AbstractString, script::BengaliScript, options) = ("Ben", 1.0)
 detect_lang_based_on_script(text::AbstractString, script::HangulScript, options) = ("Kor", 1.0)
 detect_lang_based_on_script(text::AbstractString, script::GeorgianScript, options) = ("Kat", 1.0)
@@ -248,7 +280,18 @@ detect_lang_based_on_script(text::AbstractString, script::OriyaScript, options) 
 detect_lang_based_on_script(text::AbstractString, script::MyanmarScript, options) = ("Mya", 1.0)
 detect_lang_based_on_script(text::AbstractString, script::SinhalaScript, options) = ("Sin", 1.0)
 detect_lang_based_on_script(text::AbstractString, script::KhmerScript, options) = ("Khm", 1.0)
-detect_lang_based_on_script(text::AbstractString, script::Union{HiraganaScript, KatakanaScript}, options) = ("Jpn", 1.0)
+function detect_lang_based_on_script(
+    text::AbstractString, 
+    script::Union{HiraganaScript, KatakanaScript, Tuple{Union{HiraganaScript, KatakanaScript}, Float64}}, 
+    options
+)
+    @info script
+    if isequal(typeof(script), Tuple{Union{HiraganaScript, KatakanaScript}, Float64}) 
+        ("Jpn", last(script))
+    else
+        ("Jpn", 1.0) 
+    end
+end
 
 
 @enum DetectType Trigram=1 Deep=2
@@ -344,7 +387,7 @@ end
 function(m::LanguageDetector)(text::AbstractString, options=default_options())
     if text==""; throw(ArgumentError("Cannot detect language for empty text")); end
     script = detect_script(text)
-    if script == nothing; return (nothing, nothing, 0); end
+    if isnothing(script); return (nothing, nothing, 0); end
     lang, conf = detect_lang_based_on_script(text, script, options)
     return (from_code(lang), script, conf)
 end
