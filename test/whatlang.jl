@@ -148,3 +148,11 @@ for (key, val) in examples
     global output = d(val)
     @test output[1] == Languages.from_code(key)
 end
+
+# Test Mandarin Hiragana Katakana
+j_examples = JSON.parse(read(joinpath(dirname(@__FILE__), "j_examples.json"), String))
+
+for (key, val) in j_examples
+    global output = d(val)
+    @test output[1] == Languages.Japanese()
+end
