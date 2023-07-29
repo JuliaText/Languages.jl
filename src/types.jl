@@ -5,8 +5,25 @@ abstract type Language; end
 # Portuguese, Romanian, Russian, Spanish, Swedish, Turkish
 
 # These are ISO 639-2T alpha-3 and ISO 639-3 codes
+"""
+    isocode(lang::T) where {T<:Language}
+
+Returns ISO code of the `lang`
+"""
 isocode(lang::T) where {T<:Language} = isocode(T)
+
+"""
+    name(lang::T) where {T<:Language}
+
+Returns the self-name of the language `lang`.
+"""
 name(lang::T) where {T<:Language} = name(T)
+
+"""
+    english_name(lang::T) where {T<:Language}
+
+Returns the name of the language `lang` in English.
+"""
 english_name(lang::T) where {T<:Language} = english_name(T)
 
 struct Esperanto <: Language; end;	english_name(::Type{Esperanto}) = "Esperanto";	name(::Type{Esperanto}) = "Esperanto";	isocode(::Type{Esperanto}) = "epo";
@@ -182,6 +199,11 @@ global const code_to_lang = Dict{String, Language}(
     "uig"  => Uyghur(),
     )
 
+"""
+    from_code(code::String)
+
+Returns the language object for the ISO `code`.
+"""
 function from_code(code::String)
     return get(code_to_lang, lowercase(code), nothing)
 end

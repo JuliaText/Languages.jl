@@ -9,6 +9,12 @@
 
 const RELIABLE_CONFIDENCE_THRESHOLD = 0.8;
 
+"""
+    detect_script(text::AbstractString)
+
+Detect a script for the given `text`.
+Returns either `Script` or a tuple `(Script, probability)`.
+"""
 function detect_script(text::AbstractString)
     script_counters = [
       [LatinScript()      , 0],
@@ -384,6 +390,11 @@ Base.@deprecate detect(text::AbstractString, options=default_options()) Language
 mutable struct LanguageDetector
 end
 
+"""
+    detector::LanguageDetector(text::AbstractString, options=default_options())
+
+Returns a tuple `(Language, Script, confidence)` for the given `text`
+"""
 function(m::LanguageDetector)(text::AbstractString, options=default_options())
     if text==""; throw(ArgumentError("Cannot detect language for empty text")); end
     script = detect_script(text)
