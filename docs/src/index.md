@@ -1,15 +1,4 @@
-Languages.jl
-============
-[![Build Status](https://github.com/juliatext/Languages.jl/workflows/CI/badge.svg?event=push&branch=master)](https://github.com/JuliaText/Languages.jl/actions?query=workflow%3ACI)
-[![version](https://juliahub.com/docs/Languages/version.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r)
-[![deps](https://juliahub.com/docs/Languages/deps.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r/0.4.3?page=2)
-[![pkgeval](https://juliahub.com/docs/Languages/pkgeval.svg)](https://juliahub.com/ui/Packages/Languages/w1H1r)
-
-
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliatext.github.io/Languages.jl) [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliatext.github.io/Languages.jl/dev)
-
-
-## Introduction
+# Languages.jl
 
 Languages.jl is a Julia package for working with human languages. It provides:
 
