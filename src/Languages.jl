@@ -26,7 +26,7 @@ using RelocatableFolders
 	    global trigram_models = Dict{String, Dict}()
 	    for (script, langs) in trigram_models_json
 	        for (lang, trigrams) in langs #store only supported langs
-				if from_code(lang) != nothing
+				if !isnothing(from_code(lang))
 	            	get!(trigram_models, script, Dict{String, Vector{String}}())[lang] = split(trigrams, '|')
 	        	end
 	    	end
