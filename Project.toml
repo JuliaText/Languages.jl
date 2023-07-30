@@ -1,6 +1,6 @@
 name = "Languages"
 uuid = "8ef0a80b-9436-5d2c-a485-80b904378c43"
-version = "1.0.0"
+version = "0.4.4"
 
 [deps]
 InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
