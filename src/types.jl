@@ -198,6 +198,7 @@ global const code_to_lang = Dict{String, Language}(
     "run"  => Rundi(),
     "sna"  => Shona(),
     "uig"  => Uyghur(),
+    "nhw" => NahuatlHuasteca(),
     )
 
 """
