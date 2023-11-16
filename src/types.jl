@@ -111,6 +111,7 @@ struct Rundi <: Language; end;	english_name(::Type{Rundi}) = "Rundi";	name(::Typ
 struct Shona <: Language; end;	english_name(::Type{Shona}) = "Shona";	name(::Type{Shona}) = "ChiShona";	isocode(::Type{Shona}) = "sna"
 struct Uyghur <: Language; end;	english_name(::Type{Uyghur}) = "Uyghur";	name(::Type{Uyghur}) = "ئۇيغۇرچە";	isocode(::Type{Uyghur}) = "uig"
 struct Swahili <: Language; end;	english_name(::Type{Swahili}) = "Swahili";	name(::Type{Swahili}) = "Kiswahili";	isocode(::Type{Swahili}) = "swh"
+struct NahuatlHuasteca <: Language; end;  english_name(::Type{NahuatlHuasteca}) = "NahuatlHuasteca";  name(::Type{NahuatlHuasteca}) = "Nahuatlajtoli";  isocode(::Type{NahuatlHuasteca}) = "nhw"
 
 global const code_to_lang = Dict{String, Language}(
     "epo"  => Esperanto(),
@@ -197,6 +198,7 @@ global const code_to_lang = Dict{String, Language}(
     "run"  => Rundi(),
     "sna"  => Shona(),
     "uig"  => Uyghur(),
+    "nhw" => NahuatlHuasteca(),
     )
 
 """
